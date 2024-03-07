@@ -4,7 +4,9 @@ require './controles/Casilla.php';
 require './controles/Jugador.php';
 require './controles/Tablero.php';
 require './controles/Juego.php';
-
+echo "<pre>";
+var_dump($_SESSION);
+echo "</pre>";
 // Verifica si la partida y los jugadores están establecidos
 if (!isset($_SESSION['partida'])) {
 
@@ -35,4 +37,4 @@ if ($jugadorActual->getPosicion() >= 63) {
 $_SESSION['turnoActual'] = ($turno + 1) % count($_SESSION['jugadoresInfo']);
 
 // Devuelve la respuesta
-return  json_encode($response);
+echo  json_encode($response);

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +7,6 @@
     <link href="css/styles.css?<?= Rand(0, 10000)?>" rel="stylesheet" />
     <title>Jugar-OCA</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-
 </head>
 
 <body class="body">
@@ -32,10 +29,7 @@
             // Asegurarse de que los arrays de 'nombre' y 'color' existen y tienen elementos
             if (isset($_POST['nombre']) && is_array($_POST['nombre']) && isset($_POST['color']) && is_array($_POST['color'])) {
                 // Inicializar arrays para almacenar los nombres y colores
-                require './controles/Jugador.php';
-                require './controles/Tablero.php';
-                require './controles/Casilla.php';
-                require './controles/Juego.php';
+                
                 session_start();
                 $_SESSION['jugadores'] = []; // Inicializar el array de jugadores en la sesión
                 
@@ -55,11 +49,22 @@
                         ];
                     } 
                 }
+                include './controles/Jugador.php';
+                include './controles/Tablero.php';
+                include './controles/Casilla.php';
+                include './controles/Juego.php';
+
+                $partida = new Juego($jugadoresInfo);
+                $hayGanador = false;
+                $turno = 0;
+                $_SESSION['partida']=$partida;
+                $_SESSION['turnoActual']=$partida;
+
             }
         }
-                // $partida = new Juego($jugadoresInfo);
-                // $hayGanador = false;
-                // $turno = 0; // Variable para llevar cuenta de a quién le toca
+        
+
+                 // Variable para llevar cuenta de a quién le toca
 
                 // while (!$hayGanador) {
                 //     echo "<br>Turno del jugador " . $turno . ": ";
