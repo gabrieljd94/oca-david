@@ -17,5 +17,9 @@ const handleLanzarDado = async () => {
         console.log(result)
     } catch (error) {
         console.log("error al lanzar el dado")
+        console.log("error al lanzar el dado")
+        console.log("error al lanzar el dado")
+        console.log("error al lanzar el dado")
+        console.log("error al lanzar el dado")
     }
 }
