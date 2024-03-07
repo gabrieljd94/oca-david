@@ -9,17 +9,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ** Functions
 const handleLanzarDado = async () => {
-    let result
-
     try {
-        result = await fetch("./manejar_turno.php");
+        const response = await fetch("./manejar_turno.php",{
+            method: 'POST',
+        });
 
-        console.log(result)
+        const data = await response.json();
+
+        console.log(data)
     } catch (error) {
         console.log("error al lanzar el dado")
-        console.log("error al lanzar el dado")
-        console.log("error al lanzar el dado")
-        console.log("error al lanzar el dado")
-        console.log("error al lanzar el dado")
+        console.log(error)
     }
 }

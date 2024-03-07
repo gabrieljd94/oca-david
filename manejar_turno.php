@@ -4,15 +4,18 @@ require './controles/Casilla.php';
 require './controles/Jugador.php';
 require './controles/Tablero.php';
 require './controles/Juego.php';
-echo "<pre>";
-var_dump($_SESSION);
-echo "</pre>";
-// Verifica si la partida y los jugadores están establecidos
-if (!isset($_SESSION['partida'])) {
 
-    return;
-    // Inicializa la partida y los jugadores si es necesario
-}
+// Verifica si la partida y los jugadores están establecidos
+if (!$_SERVER['REQUEST_METHOD'] === 'POST') return;
+if (!isset($_SESSION['partida'])) return;
+
+
+// TEST
+echo json_encode($_SESSION);
+// TEST
+
+
+
 
 $partida = $_SESSION['partida'];
 $turno = $_SESSION['turnoActual']; // Asume que guardas el turno actual en la sesión
